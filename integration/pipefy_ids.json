@@ -1,0 +1,570 @@
+{
+  "COMERCIAL": {
+    "pipe_id": "306972949",
+    "pipe_nome": "COMERCIAL",
+    "fases": {
+      "342053485": {
+        "nome": "BACKLOG - COMERCIAL",
+        "campos": [
+          {
+            "id": "criar_drive_do_cliente",
+            "label": "CRIAR DRIVE DO CLIENTE",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "drive_cliente",
+            "label": "DRIVE CLIENTE",
+            "tipo": "short_text"
+          }
+        ]
+      },
+      "342040391": {
+        "nome": "CLIENTE - APROVAÇÃO",
+        "campos": [
+          {
+            "id": "c_lculos_foram_homologados",
+            "label": "CALCULOS FORAM HOMOLOGADOS",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "existe_divergencia_de_valores",
+            "label": "EXISTE DIVERGENCIA DE VALORES",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "decisao_do_lead_para_proposta_inicial",
+            "label": "DECISAO DO LEAD PARA PROPOSTA INICIAL",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342042924": {
+        "nome": "CLIENTE - STAND BY",
+        "campos": []
+      },
+      "342040392": {
+        "nome": "FORMULAÇÃO - PROPOSTA INICIAL",
+        "campos": [
+          {
+            "id": "valor_do_cr_dito",
+            "label": "VALOR DO CREDITO CONSIDERADO PARA PROPOSTA INICIAL",
+            "tipo": "currency"
+          },
+          {
+            "id": "tempo_total_opera_o_em_dias",
+            "label": "TEMPO TOTAL OPERAÇAO",
+            "tipo": "number"
+          },
+          {
+            "id": "incide_imposto_de_renda",
+            "label": "INCIDE IMPOSTO DE RENDA",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "imposto_de_renda",
+            "label": "IMPOSTO DE RENDA (%)",
+            "tipo": "number"
+          },
+          {
+            "id": "incide_contribui_o_social",
+            "label": "INCIDE CONTRIBUIÇÃO SOCIAL",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "contribui_o_social_r",
+            "label": "CONTRIBUIÇÃO SOCIAL (R$/%) ",
+            "tipo": "number"
+          },
+          {
+            "id": "honor_rios_contratuais_r_1",
+            "label": "HONORÁRIOS CONTRATUAIS (R$/%)",
+            "tipo": "short_text"
+          },
+          {
+            "id": "honor_rios_sucumbenciais_r_1",
+            "label": "HONORÁRIOS SUCUMBENCIAIS (R$/%)",
+            "tipo": "short_text"
+          },
+          {
+            "id": "valor_da_proposta_ao_cliente",
+            "label": "VALOR DA PROPOSTA AO CLIENTE",
+            "tipo": "currency"
+          },
+          {
+            "id": "rentabilidade_anual_esperada",
+            "label": "RENTABILIDADE ANUAL ESPERADA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "proposta_pronta_para_apresentar_ao_lead",
+            "label": "PROPOSTA PRONTA PARA APRESENTAR AO LEAD",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342042706": {
+        "nome": "APRESENTAÇÃO - PROPOSTA INICIAL",
+        "campos": [
+          {
+            "id": "ja_recebeu_alguma_proposta",
+            "label": "JA RECEBEU ALGUMA PROPOSTA",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "qual_o_valor_a_proposta_recebida",
+            "label": "QUAL O VALOR A PROPOSTA RECEBIDA",
+            "tipo": "currency"
+          },
+          {
+            "id": "qual_valor_desejado_pelo_cliente",
+            "label": "QUAL VALOR DESEJADO PELO CLIENTE",
+            "tipo": "currency"
+          },
+          {
+            "id": "por_qual_motivo_deseja_vender_o_credito",
+            "label": "POR QUAL MOTIVO DESEJA VENDER O CREDITO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "valor_da_proposta_ao_cliente_1",
+            "label": "VALOR DA PROPOSTA AO CLIENTE",
+            "tipo": "currency"
+          },
+          {
+            "id": "rentabilidade_anual_esperada_1",
+            "label": "RENTABILIDADE ANUAL ESPERADA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "cliente_aceitou_a_proposta_inicial",
+            "label": "CLIENTE ACEITOU A PROPOSTA INICIAL",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "conseguiu_negociar",
+            "label": "CONSEGUIU NEGOCIAR",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "valor_negociado_da_proposta_ao_cliente",
+            "label": "VALOR RENEGOCIADO DA PROPOSTA AO CLIENTE",
+            "tipo": "currency"
+          },
+          {
+            "id": "rentabilidade_anual_esperada_p_s_negocia_o_inicial",
+            "label": "RENTABILIDADE ANUAL ESPERADA POS RENEGOCIAÇÃO INICIAL",
+            "tipo": "short_text"
+          },
+          {
+            "id": "qual_motivo_da_inseguran_a",
+            "label": "QUAL MOTIVO DA INSEGURANÇA",
+            "tipo": "long_text"
+          }
+        ]
+      },
+      "342040399": {
+        "nome": "AGUARDANDO DOCUMENTAÇÃO",
+        "campos": [
+          {
+            "id": "email",
+            "label": "EMAIL",
+            "tipo": "short_text"
+          },
+          {
+            "id": "profissao",
+            "label": "PROFISSAO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "estado_civil",
+            "label": "ESTADO CIVIL",
+            "tipo": "short_text"
+          },
+          {
+            "id": "naturalidade",
+            "label": "NATURALIDADE",
+            "tipo": "short_text"
+          },
+          {
+            "id": "numero_do_rg",
+            "label": "NUMERO DO RG",
+            "tipo": "short_text"
+          },
+          {
+            "id": "nome_do_titular",
+            "label": "NOME DO TITULAR",
+            "tipo": "short_text"
+          },
+          {
+            "id": "cpf_do_titular",
+            "label": "CPF DO TITULAR",
+            "tipo": "short_text"
+          },
+          {
+            "id": "banco",
+            "label": "BANCO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "agencia",
+            "label": "AGENCIA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "tipo_de_conta",
+            "label": "TIPO DE CONTA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "conta",
+            "label": "CONTA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "pix",
+            "label": "PIX",
+            "tipo": "short_text"
+          },
+          {
+            "id": "documento_oficial_com_foto",
+            "label": "DOCUMENTO OFICIAL COM FOTO",
+            "tipo": "attachment"
+          },
+          {
+            "id": "comprovante_de_residencia",
+            "label": "COMPROVANTE DE RESIDENCIA",
+            "tipo": "attachment"
+          },
+          {
+            "id": "comprovante_de_resid_ncia_preenchido_agente_de_extracao",
+            "label": "COMPROVANTE DE RESIDÊNCIA PREENCHIDO - AGENTE DE EXTRACAO",
+            "tipo": "radio_vertical"
+          },
+          {
+            "id": "cep",
+            "label": "CEP",
+            "tipo": "short_text"
+          },
+          {
+            "id": "domicilio",
+            "label": "DOMICILIO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "bairro",
+            "label": "BAIRRO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "cidade",
+            "label": "CIDADE",
+            "tipo": "short_text"
+          },
+          {
+            "id": "estado",
+            "label": "ESTADO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "contrato_de_honorarios",
+            "label": "CONTRATO DE HONORARIOS",
+            "tipo": "attachment"
+          },
+          {
+            "id": "todos_as_informacoes_foram_coletas",
+            "label": "TODOS AS INFORMACOES FORAM COLETADAS",
+            "tipo": "radio_vertical"
+          }
+        ]
+      },
+      "342040401": {
+        "nome": "ENVIADO PARA COMPLIANCE - DUE",
+        "campos": []
+      },
+      "342040407": {
+        "nome": "COLETA DOCUMENTAL PARA RE-DUE",
+        "campos": [
+          {
+            "id": "retorno_da_re_due_texto",
+            "label": "RETORNO PARA A RE-DUE TEXTO",
+            "tipo": "long_text"
+          },
+          {
+            "id": "retorno_para_a_re_due_anexo",
+            "label": "RETORNO PARA A RE-DUE ANEXO",
+            "tipo": "long_text"
+          }
+        ]
+      },
+      "342103722": {
+        "nome": "ENVIADO PARA RE-DUE",
+        "campos": []
+      },
+      "342040408": {
+        "nome": "AGUARDANDO ANÁLISE JURÍDICA",
+        "campos": [
+          {
+            "id": "prazo_para_conclusao_da_analise",
+            "label": "PRAZO PARA CONCLUSAO DA ANALISE ",
+            "tipo": "datetime"
+          }
+        ]
+      },
+      "342040409": {
+        "nome": "ANÁLISE JURÍDICA CONCLUÍDA",
+        "campos": [
+          {
+            "id": "link_card_juridico",
+            "label": "LINK DO CARD NO JURIDICO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "havera_mudan_a_no_valor_da_proposta",
+            "label": "HAVERA MUDANÇA NO VALOR DA PROPOSTA?",
+            "tipo": "label_select"
+          },
+          {
+            "id": "comarca",
+            "label": "COMARCA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "numero_do_cumprimento_de_senten_a",
+            "label": "NUMERO DO CUMPRIMENTO DE SENTENÇA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "oficio_rpv_n",
+            "label": "OFICIO RPV N.",
+            "tipo": "short_text"
+          },
+          {
+            "id": "oficio_requisit_rio_n",
+            "label": "OFICIO REQUISITÓRIO N.",
+            "tipo": "short_text"
+          },
+          {
+            "id": "valor_total_executado_principal_honorarios",
+            "label": "VALOR TOTAL EXECUTADO (PRINCIPAL + HONORARIOS)",
+            "tipo": "currency"
+          },
+          {
+            "id": "data_base_valor_total_executado_principal_honorarios",
+            "label": "DATA-BASE VALOR TOTAL EXECUTADO (PRINCIPAL + HONORARIOS)",
+            "tipo": "date"
+          },
+          {
+            "id": "valor_cedido_rpv_liquido_do_cedente",
+            "label": "VALOR CEDIDO RPV (LIQUIDO DO CEDENTE)",
+            "tipo": "currency"
+          },
+          {
+            "id": "data_base_valor_cedido_rpv_liquido_do_cedente",
+            "label": "DATA-BASE VALOR CEDIDO RPV (LIQUIDO DO CEDENTE)",
+            "tipo": "date"
+          },
+          {
+            "id": "valor_dos_honorarios_contratuais",
+            "label": "VALOR DOS HONORARIOS CONTRATUAIS",
+            "tipo": "currency"
+          },
+          {
+            "id": "data_base_valor_dos_honorarios_contratuais",
+            "label": "DATA-BASE VALOR DOS HONORARIOS CONTRATUAIS",
+            "tipo": "date"
+          }
+        ]
+      },
+      "342040417": {
+        "nome": "ARREMATE COMERCIAL",
+        "campos": [
+          {
+            "id": "proposta_devera_ser_alterada",
+            "label": "PROPOSTA DEVERA SER ALTERADA",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "cliente_aceitou_a_proposta_corrigida",
+            "label": "CLIENTE ACEITOU A PROPOSTA CORRIGIDA?",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "valor_final_da_proposta",
+            "label": "VALOR FINAL DA PROPOSTA",
+            "tipo": "currency"
+          },
+          {
+            "id": "valor_final_dos_honorarios",
+            "label": "VALOR FINAL DOS HONORARIOS",
+            "tipo": "short_text"
+          }
+        ]
+      },
+      "342040424": {
+        "nome": "ELABORAÇÃO DO CONTRATO",
+        "campos": [
+          {
+            "id": "gerar_modelo_de_contrato",
+            "label": "GERAR MODELO DE CONTRATO",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342158549": {
+        "nome": "VALIDAÇÃO DO CONTRATO",
+        "campos": [
+          {
+            "id": "link_do_contrato_preenchido",
+            "label": "LINK DO CONTRATO PREENCHIDO",
+            "tipo": "long_text"
+          },
+          {
+            "id": "document_key_clicksign",
+            "label": "DOCUMENT KEY CLICKSIGN",
+            "tipo": "short_text"
+          },
+          {
+            "id": "contrato_validado_enviar_para_assinatura",
+            "label": "CONTRATO VALIDADO-ENVIAR PARA ASSINATURA ",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342040436": {
+        "nome": "CONTRATO ENVIADO PARA ASSINATURA",
+        "campos": []
+      },
+      "342040437": {
+        "nome": "CARTÓRIO EM AGENDAMENTO",
+        "campos": []
+      },
+      "342040447": {
+        "nome": "AGUARDANDO PARA ANEXO NOS AUTOS",
+        "campos": []
+      },
+      "342103872": {
+        "nome": "ANEXADO NOS AUTOS",
+        "campos": []
+      },
+      "342040499": {
+        "nome": "PERDIDO - PROPOSTA INICIAL NEGADA",
+        "campos": []
+      },
+      "342040502": {
+        "nome": "PERDIDO - BARREIRA JURÍDICA",
+        "campos": []
+      },
+      "342040504": {
+        "nome": "PERDIDO - PROPOSTA CORRIGIDA NEGADA",
+        "campos": []
+      },
+      "342103780": {
+        "nome": "PERDIDO - DUE INCONSISTENTE",
+        "campos": []
+      }
+    }
+  },
+  "COMPLIANCE": {
+    "pipe_id": "306972971",
+    "pipe_nome": "COMPLIANCE",
+    "fases": {
+      "342053504": {
+        "nome": "BACKLOG - COMPLIANCE",
+        "campos": []
+      },
+      "342040532": {
+        "nome": "AGUARDANDO DUE",
+        "campos": [
+          {
+            "id": "iniciar_due",
+            "label": "INICIAR DUE ",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342040533": {
+        "nome": "DUE EM ANDAMENTO",
+        "campos": [
+          {
+            "id": "situa_o_cadastral_do_cpf",
+            "label": "SITUAÇAO CADASTRAL DO CPF",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_de_regularidade_fiscal",
+            "label": "CERTIDAO DE REGULARIDADE FISCAL",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_de_protesto_cenprot",
+            "label": "CERTIDAO DE PROTESTO (CENPROT)",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_de_distribui_o_negativa_c_vel_federal",
+            "label": "CERTIDÃO DE DISTRIBUIÇÃO NEGATIVA CIVEL FEDERAL",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_de_distribui_o_negativa_civel_estadual",
+            "label": "CERTIDÃO DE DISTRIBUIÇÃO NEGATIVA CIVEL ESTADUAL",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_de_a_o_trabalhista",
+            "label": "CERTIDÃO DE AÇÃO TRABALHISTA",
+            "tipo": "attachment"
+          },
+          {
+            "id": "certid_o_negativa_de_d_bitos_trabalhistas",
+            "label": "CERTIDÃO NEGATIVA DE DÉBITOS TRABALHISTAS",
+            "tipo": "attachment"
+          },
+          {
+            "id": "existe_alguma_inconsistencia_na_due",
+            "label": "EXISTE ALGUMA INCONSISTENCIA NA DUE",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "o_que_e_a_inconsistencia",
+            "label": "O QUE E A INCONSISTENCIA",
+            "tipo": "radio_vertical"
+          },
+          {
+            "id": "qual_is_doc_certidao_esta_faltando",
+            "label": "QUAL(IS) DOC/CERTIDAO ESTA FALTANDO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "qual_is_doc_apresenta_divida_processo",
+            "label": "QUAL(IS) DOC APRESENTA DIVIDA/PROCESSO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "concluir_analise_do_compliance",
+            "label": "CONCLUIR ANALISE DO COMPLIANCE",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342053058": {
+        "nome": "DUE CONCLUÍDA",
+        "campos": []
+      }
+    }
+  },
+  "FINANCEIRO": {
+    "pipe_id": "306972979",
+    "pipe_nome": "FINANCEIRO",
+    "fases": {
+      "342040581": {
+        "nome": "PAGAMENTO LIBERADO",
+        "campos": []
+      },
+      "342040583": {
+        "nome": "PAGAMENTO REALIZADO",
+        "campos": []
+      }
+    }
+  }
+}

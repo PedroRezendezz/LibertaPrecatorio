@@ -1,0 +1,35 @@
+LOOKER STUDIO – REFERÊNCIA RÁPIDA (tabela eventos)
+==================================================
+
+PÁGINA 1 – Visão geral
+  Filtros: Pipe, Fase, Intervalo de datas (created_at)
+  KPI 1: Registros
+  KPI 2: COUNT_DISTINCT(card_id)
+  KPI 3: COUNT_DISTINCT(pipe)
+  KPI 4: COUNT_DISTINCT(fase)
+  Barras: Dimensão=pipe, Métrica=Registros → "Eventos por pipe"
+  Barras/Pizza: Dimensão=fase, Métrica=Registros → "Eventos por fase"
+  Linhas: Dimensão=created_at (Data dia/semana), Métrica=Registros → "Eventos no tempo"
+  Tabela: Dimensões=pipe,fase, Métrica=Registros → "Resumo Pipe × Fase"
+
+PÁGINA 2 – Comercial
+  Filtro: pipe = COMERCIAL
+  KPIs: Registros, COUNT_DISTINCT(card_id), COUNT_DISTINCT(fase)
+  Barras: fase × Registros
+  Tabela: card_id, card_title, fase, created_at + campos valor_* (com campos calculados se precisar)
+  Pizza: cliente_aceitou_proposta_inicial × Registros
+
+PÁGINA 3 – Compliance / Jurídico
+  Tabela: card_id, pipe, fase, inconsistencia_due, descricao_inconsistencia, prazo_conclusao_analise, created_at
+  Barras: inconsistencia_due × Registros
+
+PÁGINA 4 – Detalhe
+  Tabela: created_at, card_id, card_title, pipe, fase + todos os campos de valor e proposta
+  Filtros: Pipe, Fase, Data
+
+Campos da tabela eventos (para arrastar):
+  id, card_id, card_title, pipe, fase, created_at,
+  valor_credito, valor_credito_proposta_inicial, valor_proposta_cliente,
+  valor_renegociado_proposta, valor_final_proposta, valor_pago_cedente,
+  cliente_aceitou_proposta_inicial, conseguiu_negociar, proposta_deve_ser_alterada, cliente_aceitou_proposta_corrigida,
+  inconsistencia_due, descricao_inconsistencia, prazo_conclusao_analise

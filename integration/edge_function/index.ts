@@ -7,6 +7,12 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const PIPEFY_API_URL = "https://api.pipefy.com/graphql";
 
 // ---------------------------------------------------------------
+// REGRAS POR EVENTO (fase): quais campos salvar por pipe/fase
+// Exportado da planilha via integration/0_export_required_fields_from_excel.py
+// ---------------------------------------------------------------
+import REQUIRED_FIELDS_BY_PHASE from "./required_fields_by_phase.json" assert { type: "json" };
+
+// ---------------------------------------------------------------
 // MAPEAMENTO PRIMÁRIO: field_id do Pipefy → coluna eventos
 // IDs descobertos via GraphQL introspection do pipe COMERCIAL (306972949)
 // ---------------------------------------------------------------
@@ -60,6 +66,54 @@ function normalize(str: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[?!,.]/g, "")
     .trim();
+}
+
+function normalizePipe(str: string): string {
+  const s = normalize(str).replace(/\s+/g, " ");
+  return s.startsWith("pipe ") ? s.slice("pipe ".length).trim() : s;
+}
+
+const EVENT_OPTIONAL_COLUMNS = [
+  "valor_credito",
+  "valor_credito_proposta_inicial",
+  "valor_proposta_cliente",
+  "valor_renegociado_proposta",
+  "valor_final_proposta",
+  "valor_pago_cedente",
+  "cliente_aceitou_proposta_inicial",
+  "conseguiu_negociar",
+  "proposta_deve_ser_alterada",
+  "cliente_aceitou_proposta_corrigida",
+  "inconsistencia_due",
+  "descricao_inconsistencia",
+  "prazo_conclusao_analise",
+] as const;
+
+function getAllowedColumnsForEvent(pipeName: string, phaseName: string): Set<string> | null {
+  const pipeKey = normalizePipe(pipeName);
+  const phaseKey = normalize(phaseName).replace(/\s+/g, " ");
+
+  const pipeMap = (REQUIRED_FIELDS_BY_PHASE as Record<string, Record<string, string[]>>)[pipeKey];
+  if (!pipeMap) return null;
+
+  const labelKeys = [
+    ...(pipeMap["todos"] ?? []),
+    ...(pipeMap[phaseKey] ?? []),
+  ];
+
+  // Se o pipe existe mas não achamos fase nem "todos", não filtra (evita perder dados por mismatch)
+  if (!labelKeys.length) {
+    console.warn(`[WARN] Sem regra de campos para pipe='${pipeName}' fase='${phaseName}'. Mantendo comportamento atual.`);
+    return null;
+  }
+
+  const cols = new Set<string>();
+  for (const lk of labelKeys) {
+    const col = FIELD_LABEL_MAP[lk];
+    if (col) cols.add(col);
+    else console.warn(`[WARN] Label não mapeado no FIELD_LABEL_MAP: '${lk}' (pipe='${pipeName}', fase='${phaseName}')`);
+  }
+  return cols;
 }
 
 // Busca todos os campos do card na API do Pipefy
@@ -117,6 +171,9 @@ function buildEventRecord(
     created_at: new Date().toISOString(),
   };
 
+  const pipeName = String(((card.pipe as Record<string, string>)?.name ?? "") || "");
+  const allowedCols = getAllowedColumnsForEvent(pipeName, phaseName);
+
   const fields = (card.fields as Array<Record<string, unknown>>) ?? [];
   for (const field of fields) {
     const fieldId  = (field.field as Record<string, string>)?.id ?? "";
@@ -126,6 +183,9 @@ function buildEventRecord(
     // Usa field_id primeiro (mais confiável), fallback para label normalizado
     const col = FIELD_ID_MAP[fieldId] ?? FIELD_LABEL_MAP[labelKey];
     if (col) {
+      // Se existir regra para o evento, ignora colunas fora da lista permitida
+      if (allowedCols && !allowedCols.has(col)) continue;
+
       // Prefere date_value/datetime_value quando disponível
       const val =
         field.date_value ??
@@ -136,6 +196,14 @@ function buildEventRecord(
       if (record[col] === undefined || record[col] === null) {
         record[col] = val;
       }
+    }
+  }
+
+  // Se filtragem ativa, garante que colunas fora da regra virem NULL no upsert
+  if (allowedCols) {
+    for (const col of EVENT_OPTIONAL_COLUMNS) {
+      if (!allowedCols.has(col)) record[col] = null;
+      else if (record[col] === undefined) record[col] = null;
     }
   }
 

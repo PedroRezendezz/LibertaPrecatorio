@@ -1,0 +1,63 @@
+{
+  "comercial": {
+    "aguardando documentacao": [],
+    "aguardando para anexo nos autos": [],
+    "analise juridica concluida": [],
+    "anexado nos autos": [],
+    "apresentacao - proposta inicial": [
+      "valor da proposta ao cliente",
+      "cliente aceitou a proposta inicial",
+      "valor renegociado da proposta ao cliente"
+    ],
+    "arremate comercial": [
+      "proposta devera ser alterada",
+      "cliente aceitou a proposta corrigida",
+      "valor final da proposta"
+    ],
+    "backlog - comercial": [
+      "valor do credito"
+    ],
+    "cartorio em agendamento": [],
+    "cliente - stand by": [],
+    "contrato enviado para assinatura": [],
+    "enviado para compliance - due": [],
+    "formulacao - proposta inicial": [
+      "valor do credito considerado para proposta inicial",
+      "valor da proposta ao cliente"
+    ],
+    "perdido - barreira juridica": [],
+    "perdido - due inconsistente": [],
+    "perdido - proposta corrigida negada": [],
+    "perdido - proposta inicial negada": []
+  },
+  "compliance": {
+    "backlog - compliance": [],
+    "due concluida": [
+      "existe alguma inconsistencia na due",
+      "o que e a inconsistencia"
+    ]
+  },
+  "financeiro": {
+    "pagamento liberado": [],
+    "pagamento realizado": [
+      "valor pago ao cedente"
+    ]
+  },
+  "juridico": {
+    "analise juridica - em andamento": [],
+    "analise juridica - fila": [
+      "prazo para conclusao da analise"
+    ],
+    "analise juridica -concluida": [],
+    "anexado nos autos": [],
+    "anexar nos autos do processo": [],
+    "due inconsistente": [],
+    "perdido - due inconsistente": []
+  },
+  "sdr - comercial": {
+    "desqualificado": [],
+    "nao identificado": [],
+    "qualificado": [],
+    "todos": []
+  }
+}

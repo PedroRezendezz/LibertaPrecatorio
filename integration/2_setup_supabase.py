@@ -39,6 +39,7 @@ FUNCTION_NAME = "pipefy-events"
 
 SQL_FILE = Path(__file__).parent / "sql" / "001_create_eventos.sql"
 TS_FILE  = Path(__file__).parent / "edge_function" / "index.ts"
+REQ_FIELDS_FILE = Path(__file__).parent / "edge_function" / "required_fields_by_phase.json"
 
 
 def check_env():
@@ -94,11 +95,18 @@ def deploy_edge_function():
     print(f"\n[B] Fazendo deploy da Edge Function '{FUNCTION_NAME}'...")
 
     ts_code = TS_FILE.read_text(encoding="utf-8")
+    # Arquivo JSON de regras por fase (exportado da planilha)
+    if REQ_FIELDS_FILE.exists():
+        req_fields_json = REQ_FIELDS_FILE.read_text(encoding="utf-8")
+    else:
+        req_fields_json = "{}"
+        print(f"    [!] Aviso: {REQ_FIELDS_FILE.name} não encontrado. Usando mapeamento vazio.")
 
     # Cria zip em memoria
     zip_buf = io.BytesIO()
     with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("index.ts", ts_code)
+        zf.writestr(REQ_FIELDS_FILE.name, req_fields_json)
     zip_b64 = base64.b64encode(zip_buf.getvalue()).decode()
 
     # Verifica se funcao ja existe

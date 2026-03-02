@@ -14,6 +14,7 @@ if hasattr(sys.stdout, "buffer"):
 
 BASE = Path(__file__).parent
 SCRIPTS = [
+    ("0_export_required_fields_from_excel.py", "Export do mapeamento de campos por fase (planilha → JSON)"),
     ("1_discover_pipefy.py",  "Descoberta de IDs do Pipefy"),
     ("2_setup_supabase.py",   "Setup do Supabase (tabela + Edge Function)"),
     ("3_create_webhooks.py",  "Criação de Webhooks no Pipefy"),

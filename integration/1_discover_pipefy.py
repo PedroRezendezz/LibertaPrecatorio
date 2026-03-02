@@ -27,7 +27,7 @@ if env_path.exists():
 PIPEFY_TOKEN = os.environ.get("PIPEFY_TOKEN", "")
 PIPEFY_URL   = "https://api.pipefy.com/graphql"
 
-PIPES_ALVO = ["COMERCIAL", "COMPLIANCE", "JURIDICO", "FINANCEIRO"]
+PIPES_ALVO = ["SDR", "COMERCIAL", "COMPLIANCE", "JURIDICO", "FINANCEIRO"]
 
 
 def gql(query: str) -> dict:

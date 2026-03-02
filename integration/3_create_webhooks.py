@@ -35,6 +35,7 @@ else:
     EDGE_FUNCTION_URL = os.environ.get("EDGE_FUNCTION_URL", "")
 
 PIPES = {
+    "SDR":        os.environ.get("PIPE_ID_SDR",        "306972940"),
     "COMERCIAL":  os.environ.get("PIPE_ID_COMERCIAL",  ""),
     "COMPLIANCE": os.environ.get("PIPE_ID_COMPLIANCE", ""),
     "JURIDICO":   os.environ.get("PIPE_ID_JURIDICO",   ""),

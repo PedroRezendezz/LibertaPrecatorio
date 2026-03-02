@@ -1,4 +1,102 @@
 {
+  "SDR": {
+    "pipe_id": "306972940",
+    "pipe_nome": "SDR - COMERCIAL",
+    "fases": {
+      "342040332": {
+        "nome": "TODOS",
+        "campos": [
+          {
+            "id": "nome_completo",
+            "label": "NOME COMPLETO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "cpf",
+            "label": "CPF",
+            "tipo": "short_text"
+          },
+          {
+            "id": "n_mero_do_processo",
+            "label": "NUMERO DO PROCESSO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "consegue_identificar_o_processo",
+            "label": "CONSEGUE IDENTIFICAR O PROCESSO?",
+            "tipo": "radio_horizontal"
+          }
+        ]
+      },
+      "342040334": {
+        "nome": "NAO IDENTIFICADO",
+        "campos": []
+      },
+      "342040333": {
+        "nome": "EM ATENDIMENTO",
+        "campos": [
+          {
+            "id": "valor_do_cr_dito",
+            "label": "VALOR DO CREDITO",
+            "tipo": "currency"
+          },
+          {
+            "id": "onde_o_valor_foi_encontrado",
+            "label": "ONDE O VALOR FOI ENCONTRADO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "ente_pagador",
+            "label": "ENTE PAGADOR",
+            "tipo": "short_text"
+          },
+          {
+            "id": "tribunal_emissor",
+            "label": "TRIBUNAL EMISSOR",
+            "tipo": "short_text"
+          },
+          {
+            "id": "honor_rios_contratuais_r",
+            "label": "HONORÁRIOS CONTRATUAIS (R$/%)",
+            "tipo": "short_text"
+          },
+          {
+            "id": "honor_rios_sucumbenciais_r",
+            "label": "HONORÁRIOS SUCUMBENCIAIS (R$/%)",
+            "tipo": "short_text"
+          },
+          {
+            "id": "etapa_atual_do_processo",
+            "label": "ETAPA ATUAL DO PROCESSO",
+            "tipo": "short_text"
+          },
+          {
+            "id": "analise_ia",
+            "label": "ANALISE IA",
+            "tipo": "short_text"
+          },
+          {
+            "id": "todos_os_campos_acima_s_o_de_um_lead_qualificado",
+            "label": "TODOS OS CAMPOS ACIMA SÃO DE UM LEAD QUALIFICADO?",
+            "tipo": "radio_horizontal"
+          },
+          {
+            "id": "motivo_desqualificado",
+            "label": "MOTIVO DESQUALIFICADO",
+            "tipo": "short_text"
+          }
+        ]
+      },
+      "342040346": {
+        "nome": "QUALIFICADO",
+        "campos": []
+      },
+      "342040336": {
+        "nome": "DESQUALIFICADO",
+        "campos": []
+      }
+    }
+  },
   "COMERCIAL": {
     "pipe_id": "306972949",
     "pipe_nome": "COMERCIAL",

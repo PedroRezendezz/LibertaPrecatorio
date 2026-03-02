@@ -37,7 +37,10 @@ PIPEFY_TOKEN         = os.environ.get("PIPEFY_TOKEN", "")
 MGMT_BASE     = "https://api.supabase.com/v1"
 FUNCTION_NAME = "pipefy-events"
 
-SQL_FILE = Path(__file__).parent / "sql" / "001_create_eventos.sql"
+SQL_FILES = [
+    Path(__file__).parent / "sql" / "001_create_eventos.sql",
+    Path(__file__).parent / "sql" / "003_mapeamento_campos_fase.sql",
+]
 TS_FILE  = Path(__file__).parent / "edge_function" / "index.ts"
 REQ_FIELDS_FILE = Path(__file__).parent / "edge_function" / "required_fields_by_phase.json"
 
@@ -62,30 +65,36 @@ def mgmt_headers():
 
 
 # ---------------------------------------------------------------
-# Passo A: Criar tabela via Management API
+# Passo A: Criar tabelas/views via Management API
 # ---------------------------------------------------------------
 def criar_tabela():
-    print("\n[A] Criando tabela 'eventos' no Supabase...")
-    sql = SQL_FILE.read_text(encoding="utf-8")
-
+    print("\n[A] Criando estrutura SQL no Supabase...")
     url = f"{MGMT_BASE}/projects/{SUPABASE_PROJECT_REF}/database/query"
-    resp = requests.post(url, json={"query": sql}, headers=mgmt_headers(), timeout=30)
 
-    if resp.status_code in (200, 201):
-        print("    [OK] Tabela criada com sucesso!")
-    elif resp.status_code == 401:
-        print("    [!] 401 JWT failed verification.")
-        print("    Para automatizar: crie um Personal Access Token em")
-        print("    supabase.com/dashboard/account/tokens e defina no .env:")
-        print("    SUPABASE_ACCESS_TOKEN=sbp_xxxx...")
-        print("    ALTERNATIVA: execute o SQL no Supabase Dashboard > SQL Editor:")
-        print(f"    Arquivo: {SQL_FILE}")
-    elif "already exists" in resp.text.lower():
-        print("    [OK] Tabela ja existe, pulando.")
-    else:
-        print(f"    [!] Resposta: {resp.status_code} - {resp.text[:400]}")
-        print("    ALTERNATIVA: execute o SQL no Supabase Dashboard > SQL Editor:")
-        print(f"    Arquivo: {SQL_FILE}")
+    for sql_file in SQL_FILES:
+        if not sql_file.exists():
+            print(f"    [!] Arquivo SQL não encontrado, pulando: {sql_file}")
+            continue
+
+        print(f"    -> Executando {sql_file.name}...")
+        sql = sql_file.read_text(encoding="utf-8")
+        resp = requests.post(url, json={"query": sql}, headers=mgmt_headers(), timeout=30)
+
+        if resp.status_code in (200, 201):
+            print(f"       [OK] {sql_file.name} aplicado com sucesso!")
+        elif resp.status_code == 401:
+            print("       [!] 401 JWT failed verification.")
+            print("           Para automatizar: crie um Personal Access Token em")
+            print("           supabase.com/dashboard/account/tokens e defina no .env:")
+            print("           SUPABASE_ACCESS_TOKEN=sbp_xxxx...")
+            print("           ALTERNATIVA: execute o SQL manualmente no Dashboard:")
+            print(f"           Arquivo: {sql_file}")
+        elif "already exists" in resp.text.lower():
+            print(f"       [OK] Estrutura de {sql_file.name} já existe, pulando.")
+        else:
+            print(f"       [!] Resposta: {resp.status_code} - {resp.text[:400]}")
+            print("           ALTERNATIVA: execute o SQL no Supabase Dashboard > SQL Editor:")
+            print(f"           Arquivo: {sql_file}")
 
 
 # ---------------------------------------------------------------

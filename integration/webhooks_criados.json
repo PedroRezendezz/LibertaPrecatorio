@@ -2,7 +2,7 @@
   {
     "pipe": "SDR",
     "pipe_id": "306972940",
-    "webhook_id": "300640944",
+    "webhook_id": "300641100",
     "webhook_nome": "Supabase-Eventos-SDR",
     "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
     "actions": [
@@ -13,7 +13,7 @@
   {
     "pipe": "COMERCIAL",
     "pipe_id": "306972949",
-    "webhook_id": "300640945",
+    "webhook_id": "300641101",
     "webhook_nome": "Supabase-Eventos-COMERCIAL",
     "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
     "actions": [
@@ -24,19 +24,8 @@
   {
     "pipe": "COMPLIANCE",
     "pipe_id": "306972971",
-    "webhook_id": "300640946",
+    "webhook_id": "300641102",
     "webhook_nome": "Supabase-Eventos-COMPLIANCE",
-    "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
-    "actions": [
-      "card.create",
-      "card.move"
-    ]
-  },
-  {
-    "pipe": "FINANCEIRO",
-    "pipe_id": "306972979",
-    "webhook_id": "300640947",
-    "webhook_nome": "Supabase-Eventos-FINANCEIRO",
     "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
     "actions": [
       "card.create",
@@ -46,8 +35,19 @@
   {
     "pipe": "JURIDICO",
     "pipe_id": "306972975",
-    "webhook_id": "300640949",
+    "webhook_id": "300641103",
     "webhook_nome": "Supabase-Eventos-JURIDICO",
+    "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
+    "actions": [
+      "card.create",
+      "card.move"
+    ]
+  },
+  {
+    "pipe": "FINANCEIRO",
+    "pipe_id": "306972979",
+    "webhook_id": "300641104",
+    "webhook_nome": "Supabase-Eventos-FINANCEIRO",
     "url": "https://jfclxizmtdsxatwsxznb.supabase.co/functions/v1/pipefy-events",
     "actions": [
       "card.create",
